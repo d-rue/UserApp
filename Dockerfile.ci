@@ -1,0 +1,5 @@
+FROM openjdk:17
+EXPOSE 8080
+WORKDIR /app
+COPY target/springboot-userapp.jar springboot-userapp.jar
+ENTRYPOINT ["java", "-jar", "/springboot-userapp.jar"]
