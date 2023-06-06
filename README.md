@@ -7,9 +7,9 @@ Accessible Endpoints at localhost:8080:
 
 | HTTP Methode | URL | Decription | Authorized users after login |
 | --- | --- | --- | --- |
-| GET: | "/home" | Home path | user, admin
-| GET: | "/user" | User path | user, admin
-| GET: | "/admin" | Admin path | admin
+| GET: | "/home" | Home path | user, admin, oauth2_user |
+| GET: | "/user" | User path | user, admin |
+| GET: | "/admin" | Admin path | admin |
 
 
 Tests are in the Test Folder:
@@ -18,7 +18,8 @@ Tests are in the Test Folder:
 | --- |
 | UserRepositoryTests |
 | UserRoleRepositoryTests |
-
+  
+  
 CI/CD:  
 Java with Maven  
 Build & Push Docker image  

@@ -37,7 +37,8 @@ public class SecurityConfig {
                 )
                 .userDetailsService(userDetailsServiceImpl)
                 .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin))
-                .httpBasic(Customizer.withDefaults());
+                .oauth2Login(Customizer.withDefaults())
+                .formLogin(Customizer.withDefaults());
 
         return http.build();
     }

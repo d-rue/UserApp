@@ -33,17 +33,7 @@ public final class DataInitializer implements ApplicationRunner {
                 .role("ROLE_ADMIN")
                 .build();
 
-        System.out.println("----------------------------------------");
-        System.out.println("----------------------------------------");
-        System.out.println(roleUser);
-        System.out.println(roleAdmin);
-        System.out.println("----------------------------------------");
-
         userRoleRepository.saveAll(List.of(roleUser, roleAdmin));
-
-        System.out.println(roleUser);
-        System.out.println(roleAdmin);
-        System.out.println("----------------------------------------");
 
         User user = User.builder()
                 .userName("user")
