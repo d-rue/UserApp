@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configurers.HeadersCon
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -30,13 +31,13 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain securityFilterChain(final HttpSecurity http) throws Exception {
         http
-                .csrf(AbstractHttpConfigurer::disable)
+                .csrf(csrf -> csrf.ignoringRequestMatchers(AntPathRequestMatcher.antMatcher("/h2/**")))
                 .authorizeHttpRequests(authRequest -> authRequest
-                        .requestMatchers("/h2/**").permitAll()
+                        .requestMatchers(AntPathRequestMatcher.antMatcher("/h2/**")).permitAll()
                         .anyRequest().authenticated()
                 )
                 .userDetailsService(userDetailsServiceImpl)
-                .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin))
+                .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
                 .oauth2Login(Customizer.withDefaults())
                 .formLogin(Customizer.withDefaults());
 
