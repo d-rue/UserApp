@@ -32,7 +32,7 @@ public class UserRepositoryTests {
     }
 
     @Test
-    public void UserRepository_Save_ReturnsSavedUser(){
+    public void userRepositorySaveReturnsSavedUser(){
         // Arrange
 
         // Act
@@ -45,7 +45,7 @@ public class UserRepositoryTests {
     }
 
     @Test
-    public void UserRepository_FindById_ReturnsSavedUser(){
+    public void userRepositoryFindByIdReturnsSavedUser(){
         // Arrange
 
         // Act
@@ -60,7 +60,7 @@ public class UserRepositoryTests {
     }
 
     @Test
-    public void UserRepository_FindByUserName_ReturnsSavedUser(){
+    public void userRepositoryFindByUserNameReturnsSavedUser(){
         // Arrange
 
         // Act

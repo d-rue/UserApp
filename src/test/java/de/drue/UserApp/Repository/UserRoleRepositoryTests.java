@@ -24,7 +24,7 @@ public class UserRoleRepositoryTests {
     }
 
     @Test
-    public void UserRoleRepository_Save_ReturnsSavedUserRole(){
+    public void userRoleRepositorySaveReturnsSavedUserRole(){
         // Arrange
 
         // Act
@@ -37,7 +37,7 @@ public class UserRoleRepositoryTests {
     }
 
     @Test
-    public void UserRoleRepository_FindById_ReturnsSavedUserRole(){
+    public void userRoleRepositoryFindByIdReturnsSavedUserRole(){
         // Arrange
 
         // Act
