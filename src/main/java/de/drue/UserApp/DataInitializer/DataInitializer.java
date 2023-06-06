@@ -18,7 +18,7 @@ public final class DataInitializer implements ApplicationRunner {
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
     private final UserRoleRepository userRoleRepository;
-    public DataInitializer(final PasswordEncoder passwordEncoder, final UserRepository userRepository, UserRoleRepository userRoleRepository) {
+    public DataInitializer(final PasswordEncoder passwordEncoder, final UserRepository userRepository, final UserRoleRepository userRoleRepository) {
         this.passwordEncoder = passwordEncoder;
         this.userRepository = userRepository;
         this.userRoleRepository = userRoleRepository;
