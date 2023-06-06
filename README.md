@@ -3,7 +3,7 @@ A simple Spring Boot Security application, which saves two users (user, admin) t
 ManyToMany relationship to UserRole Entity.  
 Uses UserDetailsService and UserDetails to retrieve the saved users for authentication and authorization.  
 
-Accessible Endpoints at http://localhost:8080:
+Accessible Endpoints at localhost:8080:
 
 | HTTP Methode | URL | Decription | Authorized users after login |
 | --- | --- | --- | --- |
@@ -14,7 +14,7 @@ Accessible Endpoints at http://localhost:8080:
 
 Tests are in the Test Folder:
 
-| File name |
+| Filename |
 | --- |
 | UserRepositoryTests |
 | UserRoleRepositoryTests |
