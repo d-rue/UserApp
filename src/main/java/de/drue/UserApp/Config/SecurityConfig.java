@@ -18,7 +18,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity
 public class SecurityConfig {
     private final UserDetailsServiceImpl userDetailsServiceImpl;
-    public SecurityConfig(UserDetailsServiceImpl userDetailsServiceImpl) {
+    public SecurityConfig(final UserDetailsServiceImpl userDetailsServiceImpl) {
         this.userDetailsServiceImpl = userDetailsServiceImpl;
     }
 
