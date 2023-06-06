@@ -23,12 +23,12 @@ public class SecurityConfig {
     }
 
     @Bean
-    public PasswordEncoder encode() {
+    PasswordEncoder encode() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(final HttpSecurity http) throws Exception {
+    SecurityFilterChain securityFilterChain(final HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authRequest -> authRequest
