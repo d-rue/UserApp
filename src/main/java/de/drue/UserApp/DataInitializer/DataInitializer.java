@@ -4,6 +4,7 @@ import de.drue.UserApp.Entity.User;
 import de.drue.UserApp.Entity.UserRole;
 import de.drue.UserApp.Repository.UserRepository;
 import de.drue.UserApp.Repository.UserRoleRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -14,15 +15,11 @@ import java.util.List;
 
 @Component
 @Slf4j
+@RequiredArgsConstructor
 public final class DataInitializer implements ApplicationRunner {
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
     private final UserRoleRepository userRoleRepository;
-    public DataInitializer(final PasswordEncoder passwordEncoder, final UserRepository userRepository, final UserRoleRepository userRoleRepository) {
-        this.passwordEncoder = passwordEncoder;
-        this.userRepository = userRepository;
-        this.userRoleRepository = userRoleRepository;
-    }
 
     public void run(final ApplicationArguments args) {
         UserRole roleUser = UserRole.builder()
