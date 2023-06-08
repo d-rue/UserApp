@@ -14,9 +14,10 @@ Accessible Endpoints at localhost:8080:
 
 Tests are in the Test Folder:
 
-| Filename |
-| --- |
-| UserRepositoryTests |
+| Filename                |
+|-------------------------|
+| HomeControllerTests     |
+| UserRepositoryTests     |
 | UserRoleRepositoryTests |
   
   
