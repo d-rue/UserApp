@@ -3,6 +3,7 @@ package de.drue.UserApp.Repository;
 import com.github.javafaker.Faker;
 import de.drue.UserApp.Entity.User;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.boot.jdbc.EmbeddedDatabaseConnection;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import java.util.Locale;
+import java.util.Optional;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
@@ -29,6 +31,11 @@ public class UserRepositoryTests {
                 .isCredentialsNonExpired(true)
                 .isEnabled(true)
                 .build();
+    }
+
+    @AfterEach
+    void tearDown() {
+        userRepository.deleteAll();
     }
 
     @Test
@@ -72,5 +79,16 @@ public class UserRepositoryTests {
         Assertions.assertThat(savedUser).isNotNull();
         Assertions.assertThat(savedUser.getId()).isGreaterThan(0);
         Assertions.assertThat(savedUser).isEqualTo(user);
+    }
+
+    @Test
+    public void userRepositoryFindByUserNameReturnsNotFound(){
+        // Arrange
+
+        // Act
+        Optional<User> notFoundUser = userRepository.findByUserName(user.getUserName());
+
+        // Assert
+        Assertions.assertThat(notFoundUser).isEqualTo(Optional.empty());
     }
 }
