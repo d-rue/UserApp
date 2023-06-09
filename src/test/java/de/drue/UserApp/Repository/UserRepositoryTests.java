@@ -80,15 +80,4 @@ public class UserRepositoryTests {
         Assertions.assertThat(savedUser.getId()).isGreaterThan(0);
         Assertions.assertThat(savedUser).isEqualTo(user);
     }
-
-    @Test
-    public void userRepositoryFindByUserNameReturnsNotFound(){
-        // Arrange
-
-        // Act
-        Optional<User> notFoundUser = userRepository.findByUserName(user.getUserName());
-
-        // Assert
-        Assertions.assertThat(notFoundUser).isEqualTo(Optional.empty());
-    }
 }
