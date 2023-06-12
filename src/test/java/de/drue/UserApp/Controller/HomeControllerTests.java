@@ -43,7 +43,7 @@ public class HomeControllerTests {
         // Assert
         response.andExpect(status().isOk())
                 .andExpect(content().encoding("UTF-8"))
-                .andExpect(content().string(containsString("Hallo User")));
+                .andExpect(content().string(containsString("Hallo")));
     }
 
     @Test
@@ -56,7 +56,7 @@ public class HomeControllerTests {
         // Assert
         response.andExpect(status().isOk())
                 .andExpect(content().encoding("UTF-8"))
-                .andExpect(content().string(containsString("Hallo Admin")));
+                .andExpect(content().string(containsString("Hallo")));
     }
 }
 

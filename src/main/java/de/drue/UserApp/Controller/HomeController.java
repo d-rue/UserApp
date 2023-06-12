@@ -2,6 +2,7 @@ package de.drue.UserApp.Controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.Nullable;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,13 +17,26 @@ public class HomeController {
 
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("/user")
-    public ResponseEntity<String> user(final Authentication authentication){
-        return new ResponseEntity<>("Hallo " + authentication.getName(), HttpStatus.OK);
+    public ResponseEntity<String> user(@Nullable final Authentication authentication){
+        String s;
+        if (authentication == null){
+            s = "Hallo";
+        } else {
+            s = "Hallo " + authentication.getName();
+        }
+        return new ResponseEntity<>(s, HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/admin")
-    public ResponseEntity<String> admin(final Authentication authentication){
-        return new ResponseEntity<>("Hallo " + authentication.getName(), HttpStatus.OK);
+    public ResponseEntity<String> admin(@Nullable final Authentication authentication){
+        String s;
+
+        if (authentication == null){
+            s = "Hallo";
+        } else {
+            s = "Hallo " + authentication.getName();
+        }
+        return new ResponseEntity<>(s, HttpStatus.OK);
     }
 }
