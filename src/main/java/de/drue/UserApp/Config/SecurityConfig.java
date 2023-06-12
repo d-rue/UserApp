@@ -4,6 +4,7 @@ import de.drue.UserApp.Service.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -28,6 +29,7 @@ public class SecurityConfig {
     }
 
     @Bean
+    @Profile("dev")
     @Order(1)
     SecurityFilterChain h2ConsoleSecurityFilterChain(final HttpSecurity http) throws Exception {
         return http
