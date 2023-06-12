@@ -17,7 +17,7 @@ public class HomeController {
 
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("/user")
-    public ResponseEntity<String> user(@Nullable final Authentication authentication){
+    public ResponseEntity<String> user(final Authentication authentication){
         String s;
         if (authentication == null){
             s = "Hallo";
@@ -29,7 +29,7 @@ public class HomeController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/admin")
-    public ResponseEntity<String> admin(@Nullable final Authentication authentication){
+    public ResponseEntity<String> admin(final Authentication authentication){
         String s;
 
         if (authentication == null){
